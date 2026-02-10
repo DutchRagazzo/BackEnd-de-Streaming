@@ -6,35 +6,18 @@ public class Serie extends Title implements Classificavel {
     private int temporadas;
     private int episodiosPorTemporada;
     private int minutosPorEpisodio;
-    private boolean ativa;
+    private boolean ativa = false;
 
-
-    public boolean isAtiva() {
-        return ativa;
-    }
-
-    public void setAtiva(boolean ativa) {
-        this.ativa = ativa;
-    }
-
-    public int getMinutosPorEpisodio() {
-        return minutosPorEpisodio;
+    public Serie(String nome, int anoDeLancamento) {
+        super(nome, anoDeLancamento);
     }
 
     public void setMinutosPorEpisodio(int minutosPorEpisodio) {
         this.minutosPorEpisodio = minutosPorEpisodio;
     }
 
-    public int getEpisodiosPorTemporada() {
-        return episodiosPorTemporada;
-    }
-
     public void setEpisodiosPorTemporada(int episodiosPorTemporada) {
         this.episodiosPorTemporada = episodiosPorTemporada;
-    }
-
-    public int getTemporadas() {
-        return temporadas;
     }
 
     public void setTemporadas(int temporadas) {
@@ -48,6 +31,11 @@ public class Serie extends Title implements Classificavel {
 
     @Override
     public int getClassificacao() {
-        return 0;//futuramente eu implemento algo legal
+        return (int)obtermediaNotas();//futuramente eu implemento algo legal
+    }
+
+    @Override
+    public String toString() {
+        return "Série - "+this.getNome() + " (" + this.getAnoDeLancamento() + ")";
     }
 }

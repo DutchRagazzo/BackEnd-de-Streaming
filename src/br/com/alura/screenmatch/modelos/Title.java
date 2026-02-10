@@ -9,7 +9,21 @@ public class Title {
     private int tempoDeDuracaoMinutos;
     private int anoDeLancamento;
     private boolean incluidoNoPlano; // encapsulando o verificador de pl
+    private String diretor;
 
+    public Title( String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+
+    }
+
+    public String getDiretor() {
+        return diretor;
+    }
+
+    public void setDiretor(String diretor) {
+        this.diretor = diretor;
+    }
 
     public int getTotalNotas() {
         return totalNotas;
