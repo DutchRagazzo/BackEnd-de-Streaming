@@ -19,12 +19,12 @@ public class Episode extends Serie implements Classificavel {
         super(nome, anoDeLancamento);
     }
 
-    public int getTotalVizualiacoes() {
+    public int getTotalVisualizacoes() {
         return totalVisualizacoes;
     }
 
-    public void setTotalVizualiacoes(int totalVizualiacoes) {
-        this.totalVisualizacoes = totalVizualiacoes;
+    public void setTotalVisualizacoes(int totalVisualizacoes) {
+        this.totalVisualizacoes = totalVisualizacoes;
     }
 
     public int getNumero() {

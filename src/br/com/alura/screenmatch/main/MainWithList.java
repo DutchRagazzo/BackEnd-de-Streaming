@@ -1,9 +1,14 @@
+package br.com.alura.screenmatch.main;
+
 import br.com.alura.screenmatch.modelos.Episode;
 import br.com.alura.screenmatch.modelos.Movie;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Title;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MainWithList {
     public static void main(String[] args){
@@ -23,7 +28,7 @@ public class MainWithList {
         BreakingBad.setMinutosPorEpisodio(47);
         BreakingBad.avaliaTitle(10);
 
-        ArrayList<Title> WatchedList = new ArrayList<>();
+        List<Title> WatchedList = new LinkedList<>();
         WatchedList.add(myMovie);
         WatchedList.add(movieBee);
         WatchedList.add(BreakingBad);
@@ -40,5 +45,27 @@ public class MainWithList {
             } //IDE recomendou usar switch case, eu não sabia que a sintaxe com expressão lambda era assim, mas aprendi agrKKK.
 
         }
+
+        List<String> SearchByArtist = new LinkedList<>();
+        SearchByArtist.add("Giancarlo Esposito");
+        SearchByArtist.add("Bod Odendirk");
+        SearchByArtist.add("Rhea Seehorn");
+        SearchByArtist.add("Jonathan Banks");
+        SearchByArtist.add("Ryan Gosling");
+        SearchByArtist.add("Emma Stone");
+        SearchByArtist.add("Jerry Seinfeld");
+        SearchByArtist.add("Chris Rock");
+
+        Collections.sort(SearchByArtist);
+        System.out.println("Ordenando a lista de artistas alfabeticamente..");
+        System.out.println(SearchByArtist);
+
+        Collections.sort(WatchedList);
+        System.out.println("Ordenando a lista de titulos assistidos alfabeticamente");
+        System.out.println(WatchedList);
+
+        WatchedList.sort(Comparator.comparing(Title::getAnoDeLancamento));//COMPARA E ORDENA POR ANO DE LANÇAMENTO
+        System.out.println("Ordenando agora por ano..");
+        System.out.println(WatchedList);
     }
 }

@@ -1,9 +1,8 @@
 package br.com.alura.screenmatch.modelos;
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 
-public class Title {
-    private double mediaNotas;
-    private double somaNotas; //encapsulando a soma de notas e o total de notas para que ninguem altere a avaliação dos filmes e a média.
+public class Title implements Comparable<Title> {
+    private double somaNotas; //encapsulando a soma de notas e o total de notas para que ninguém altere a avaliação dos filmes e a média.
     private int totalNotas;
     private String nome;
     private int tempoDeDuracaoMinutos;
@@ -67,8 +66,7 @@ public class Title {
     }
 
     public double obtermediaNotas(){
-        mediaNotas = somaNotas/totalNotas;
-        return mediaNotas;
+        return somaNotas / totalNotas;
     }
     public void temporiza(){
         int minutos = this.getTempoDeDuracaoMinutos();
@@ -83,5 +81,10 @@ public class Title {
         System.out.println("Título incluído no plano: " + incluidoNoPlano);
         System.out.println("Nota do Título: " + obtermediaNotas());
         System.out.println("Total de avaliações: " + totalNotas);
+    }
+
+    @Override //comparando os titulos pelo nome para ordenar alfabeticamente
+    public int compareTo(Title otherTitle) {
+        return this.getNome().compareTo(otherTitle.getNome());
     }
 }
